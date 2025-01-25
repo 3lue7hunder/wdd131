@@ -1,0 +1,138 @@
+/* Global Styles */
+:root {
+    --primary-color: #ff0000; /* Red */
+    --secondary-color: #ffffff; /* White */
+    --accent-color: #007a33; /* Green */
+    --overlay-bg: rgba(0, 122, 51, 0.8); /* Semi-transparent green */
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+  
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--accent-color);
+    background-color: var(--secondary-color);
+}
+  
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+  
+header::after {
+    content: "";
+    display: block;
+    height: 13px;
+    background-color: var(--secondary-color);
+}
+  
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: var(--text-shadow);
+}
+  
+main {
+    position: relative;
+}
+  
+/* Hero Section */
+#hero {
+    position: relative;
+}
+  
+#hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+  
+.overlay {
+    position: absolute;
+    padding: 15px;
+    color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    border-radius: 10px;
+    margin: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+  }
+  
+#data-overlay {
+    top: 20px;
+    left: 20px;
+    width: 300px;
+}
+  
+#weather-overlay {
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+}
+  
+
+.overlay h2 {
+    margin: 0 30px 10px -30px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    background-color: var(--overlay-bg); /* Semi-transparent green */
+    color: white;
+    padding: 5px 50px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+.overlay ul {
+    list-style: none;
+    margin: 0;
+    padding: 0px;
+}
+
+.overlay li {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: black;
+  }
+  
+  
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 10px 0;
+}
+  
+footer p {
+    margin: 5px 0;
+}
+  
+/* Responsive Design: Mobile View */
+@media (max-width: 767px) {
+#hero {
+      text-align: center;
+}
+
+.overlay {
+      position: static; /* Moves the overlays below the image */
+      margin: 15px auto; /* Center the overlays */
+      width: 90%; /* Makes the overlay boxes responsive */
+      text-align: center; /* Centers the text */
+}
+  
+#data-overlay h2,
+#weather-overlay h2 {
+      text-align: center; /* Center-aligns the headings */
+      color: black;
+      background-color: transparent;
+      margin: 0 0 10px 0px;
+}
+  
+#data-overlay ul,
+#weather-overlay ul {
+      text-align: center; /* Center-aligns the list content */
+    }
+}
