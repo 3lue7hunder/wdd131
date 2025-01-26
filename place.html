@@ -38,7 +38,10 @@
       </div>
       <div id="weather-overlay" class="overlay">
         <h2>Weather</h2>
-        <img id="weather-icon" class="weather-icon" src="images/weather-icon.svg" alt="Weather Icon">
+        <picture>
+            <source srcset="images/weather-icon.svg" media="(max-width: 767px)">
+            <img id="weather-icon" class="weather-icon" src="images/weather-icon.png" alt="">
+          </picture>        
         <ul>
           <li><strong>Temperature:</strong> 10°C</li>
           <li><strong>Conditions:</strong> Partly Cloudy</li>
