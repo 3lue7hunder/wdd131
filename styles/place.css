@@ -76,7 +76,7 @@ main {
 #weather-overlay .weather-icon {
     width: 70px; 
     height: auto; 
-    display: block; 
+    display: none; 
     margin: 10px auto; 
   }
 
@@ -84,6 +84,7 @@ main {
     content: "⛅";
     margin-left: 10px;
   }
+
 
 .overlay h2 {
     margin: 0 30px 10px -30px;
@@ -150,6 +151,7 @@ footer p {
 
 #weather-overlay .weather-icon {
         width: 150px;
+        display: block; 
 } 
     
 #weather-overlay h2::after {
