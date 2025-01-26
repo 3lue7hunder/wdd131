@@ -9,7 +9,7 @@
   
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Oregano", serif;
     line-height: 1.6;
     color: var(--accent-color);
     background-color: var(--secondary-color);
@@ -32,7 +32,7 @@ header::after {
   
 h1 {
     margin: 0;
-    font-size: 3rem;
+    font-size: 4rem;
     text-shadow: var(--text-shadow);
 }
   
@@ -82,7 +82,7 @@ main {
 
 .overlay h2 {
     margin: 0 30px 10px -30px;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--secondary-color);
     background-color: var(--overlay-bg); /* Semi-transparent green */
     color: white;
@@ -98,7 +98,7 @@ main {
 }
 
 .overlay li {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 5px 0;
     color: black;
   }
