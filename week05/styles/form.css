@@ -1,0 +1,93 @@
+:root {
+    --body-background: #2a458a;
+    --header-text: #FFFFFF;
+    --main-background: #dfdfdf;
+    --main-text: #000;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--body-background);
+    color: var(--header-text);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--body-background);
+    color: var(--header-text);
+}
+
+main {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: var(--main-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: var(--main-text);
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: var(--body-background);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.7rem;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--main-text);
+}
+
+.rating label {
+    font-size: 1.5rem;
+    color: #3e1f1f;
+    cursor: pointer;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #FFC107;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--main-background);
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
