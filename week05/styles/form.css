@@ -67,22 +67,6 @@ input[type="submit"]:hover {
     background-color: var(--main-text);
 }
 
-.rating label {
-    font-size: 1.5rem;
-    color: #3e1f1f;
-    cursor: pointer;
-}
-
-.rating input {
-    display: none;
-}
-
-.rating input:checked ~ label,
-.rating label:hover,
-.rating label:hover ~ label {
-    color: #FFC107;
-}
-
 footer {
     text-align: center;
     padding: 1rem;
@@ -91,3 +75,36 @@ footer {
     font-size: 0.9rem;
     font-weight: bold;
 }
+
+.rating {
+    direction: rtl;
+    display: inline-block;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label {
+    color: gold;
+}
+
+.rating input:checked + label {
+    color: gold;
+}
+
+.rating input:checked + label + input:checked + label {
+    color: gold;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
+}
+

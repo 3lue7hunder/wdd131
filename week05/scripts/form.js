@@ -1,5 +1,9 @@
-document.getElementById('current-year').textContent = new Date().getFullYear();
-document.getElementById('last-modified').textContent = document.lastModified;
+
+
+const today = new Date();
+
+const currentYear = document.querySelector("#currentYear")
+const lastModified = document.querySelector("#lastModified")
 
 
 const fullYear = today.getFullYear()
@@ -49,3 +53,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+

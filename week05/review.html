@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submitted</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script defer src="scripts/form.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Thank You for Your Review!</h1>
+    </header>
+
+    <main>
+        <p>Your review has been submitted successfully. Here's what you shared:</p>
+
+        <h3>Product Information</h3>
+        <p><strong>Product Name:</strong> <span id="productName"></span></p>
+
+        <h3>Overall Rating</h3>
+        <p><strong>Rating:</strong> <span id="rating"></span></p>
+
+        <h3>Installation Details</h3>
+        <p><strong>Date of Installation:</strong> <span id="installDate"></span></p>
+
+        <h3>Useful Features</h3>
+        <ul id="featuresList"></ul>
+
+        <h3>Written Review</h3>
+        <p><strong>Review:</strong> <span id="reviewText"></span></p>
+
+        <h3>User Information</h3>
+        <p><strong>Your Name:</strong> <span id="userName"></span></p>
+
+        <p>Total reviews submitted: <span id="review-count">0</span></p>
+        <a href="form.html">Submit Another Review</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Product Reviews</p>
+    </footer>
+
+    <script>
+        // Populate the fields with the data from the form submission
+        document.getElementById('productName').textContent = new URLSearchParams(window.location.search).get('productName');
+        document.getElementById('rating').textContent = new URLSearchParams(window.location.search).get('rating');
+        document.getElementById('installDate').textContent = new URLSearchParams(window.location.search).get('installDate');
+
+        const features = new URLSearchParams(window.location.search).getAll('features');
+        const featuresList = document.getElementById('featuresList');
+        features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+        });
+
+        document.getElementById('reviewText').textContent = new URLSearchParams(window.location.search).get('review');
+        document.getElementById('userName').textContent = new URLSearchParams(window.location.search).get('userName') || 'Anonymous';
+
+        // Update the review count in localStorage
+        document.addEventListener("DOMContentLoaded", () => {
+            let reviewCount = localStorage.getItem("reviewCount") || 0;
+            reviewCount++;
+            localStorage.setItem("reviewCount", reviewCount);
+            document.getElementById("review-count").textContent = reviewCount;
+        });
+    </script>
+</body>
+</html>

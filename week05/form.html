@@ -31,15 +31,15 @@
                 <fieldset>
                     <legend>Overall Rating</legend>
                     <div class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <input type="radio" id="star5" name="rating" value="5" class="star" required>
                         <label for="star5">&#9733;</label>
-                        <input type="radio" id="star4" name="rating" value="4">
+                        <input type="radio" id="star4" name="rating" value="4" class="star">
                         <label for="star4">&#9733;</label>
-                        <input type="radio" id="star3" name="rating" value="3">
+                        <input type="radio" id="star3" name="rating" value="3" class="star">
                         <label for="star3">&#9733;</label>
-                        <input type="radio" id="star2" name="rating" value="2">
+                        <input type="radio" id="star2" name="rating" value="2" class="star">
                         <label for="star2">&#9733;</label>
-                        <input type="radio" id="star1" name="rating" value="1">
+                        <input type="radio" id="star1" name="rating" value="1" class="star">
                         <label for="star1">&#9733;</label>
                     </div>
                 </fieldset>
@@ -83,9 +83,9 @@
         </section>
     </main>
     <footer>
-        <p>&copy; <span id="current-year"></span> 💠 Ty Rusnell 💠 USA</p>
-        <p>Last modified: <span id="last-modified"></span></p>
-      </footer>
+        <p>&copy;<span id="currentYear"></span> 💠 Ty Rusnell 💠 USA</p>
+        <p id="lastModified"></p>
+    </footer>
 </body>
 
 </html>
