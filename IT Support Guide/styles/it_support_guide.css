@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+main p{
+    font-size: 1.7rem;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 20px 10px;
+    font-size: 1.7rem;
+}
+
+nav li{
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: gray;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+#search, #troubleshooting, #faq {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 700px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+
+}
+
+button {
+    padding: 10px 40px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    background-color: #5c5c5c;
+}
+
+select {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+#troubleshooting, #faq {
+    padding: 20px 150px;
+}
+
+@media (min-width: 768px) {
+    main {
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+
+.hamburger {
+    display: none; 
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; 
+        flex-direction: column; 
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.active {
+        display: block; 
+    }
+
+    .hamburger {
+        display: block; 
+    }
+}
+
+
+#searchResults {
+    list-style-type: none; 
+}
+
+#searchResults a {
+    color: #000; 
+    text-decoration: none; 
+}
+
+#searchResults a:hover {
+    background-color: #5c5c5c; 
+}

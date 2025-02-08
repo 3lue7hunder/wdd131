@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting</title>
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals | Ty Rusnell | Troubleshooting Page">
+    <meta name="author" content="Ty Rusnell">
+    <link rel="stylesheet" href="styles/it_support_guide.css">
+    <link rel="stylesheet" href="styles/it_support_guide_large.css">
+    <script defer src="scripts/it_support_guide.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Troubleshooting</h1>
+        <button class="hamburger" aria-label="Toggle navigation">☰</button>
+        <nav>
+            <ul id="menu">
+                <li><a href="it_support_guide.html">Home</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+   <main>
+        <section id="troubleshooting">
+            <h2>Troubleshooting Flowchart</h2>
+            <p>Select an issue below to begin troubleshooting:</p>
+            <select id="issue-select" onchange="displaySolution()">
+                <option value="">-- Select an issue --</option>
+                <option value="computer-slow">Computer Running Slow</option>
+                <option value="internet-connection">No Internet Connection</option>
+                <option value="password-reset">Forgot Password</option>
+                <option value="printer-issue">Printer Not Printing</option>
+                <option value="computer-frozen">Computer Frozen</option>
+                <option value="virus-protection">Computer Virus Protection</option>
+                <option value="email-issue">Email Not Working</option>
+                <option value="speed-up-internet">Slow Internet Connection</option>
+                <option value="backup-data">Data Backup</option>
+                <option value="clear-cache">Clear Cache And Cookies</option>
+            </select>
+            <div id="solution"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span id="current-year"></span> 💠 Ty Rusnell 💠 USA</p>
+        <p>Last modified: <span id="last-modified"></span></p>
+      </footer>
+</body>
+</html>

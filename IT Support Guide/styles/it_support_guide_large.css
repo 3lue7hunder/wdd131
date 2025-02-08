@@ -1,0 +1,17 @@
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+
+    header, footer {
+        padding: 1.5em;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    main {
+        max-width: 1000px;
+    }
+}
