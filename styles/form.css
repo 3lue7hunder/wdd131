@@ -87,7 +87,7 @@ footer {
 
 .rating label {
     font-size: 2rem;
-    color: #ccc;
+    color: var(--main-text);
     cursor: pointer;
 }
 
