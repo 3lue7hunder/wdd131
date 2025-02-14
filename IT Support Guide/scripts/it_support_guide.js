@@ -1,35 +1,6 @@
 document.getElementById('current-year').textContent = new Date().getFullYear();
 document.getElementById('last-modified').textContent = document.lastModified;
 
-function searchFAQ() {
-    const input = document.getElementById('search-bar').value.toLowerCase();
-    const resultsContainer = document.getElementById('search-results');
-    resultsContainer.innerHTML = '';
-
-    const faqTopics = {
-        "internet": "Why is my internet slow?",
-        "printer": "How do I fix my printer not printing?",
-        "blue-screen": "What should I do when I see a blue screen error?",
-        "boot-issue": "My computer won’t turn on, what can I do?",
-        "wifi": "How can I connect to Wi-Fi?",
-        "software-crash": "Why does my software keep crashing?",
-        "virus": "How do I remove a virus from my PC?",
-        "update-issue": "My Windows update failed, how do I fix it?",
-        "usb-not-recognized": "Why is my USB device not recognized?",
-        "sound-issue": "How do I fix sound issues on my computer?"
-    };
-
-    for (const [key, question] of Object.entries(faqTopics)) {
-        if (question.toLowerCase().includes(input)) {
-            const li = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = `troubleshooting.html?topic=${key}`;
-            link.textContent = question;
-            li.appendChild(link);
-            resultsContainer.appendChild(li);
-        }
-    }
-}
 
 function displaySolution() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -50,7 +21,7 @@ function displaySolution() {
     };
     
 
-    solutionContainer.innerHTML = solutions[topic] || "Select an issue to see the solution.";
+    solutionContainer.innerHTML = solutions[topic] || "";
 }
 
 window.onload = function () {
@@ -73,30 +44,37 @@ const faqTopics = [
 ];
 
   
-  document.getElementById("searchButton").addEventListener("click", function () {
-    const input = document.getElementById("searchInput").value.toLowerCase();
-    const resultsContainer = document.getElementById("searchResults");
-    resultsContainer.innerHTML = ""; 
-  
-    const results = faqTopics.filter(topic => topic.question.toLowerCase().includes(input));
-  
-    if (results.length === 0) {
-      resultsContainer.innerHTML = "<li>No matching topics found.</li>";
-    } else {
-      results.forEach(topic => {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = topic.link;
-        link.textContent = topic.question;
-        listItem.appendChild(link);
-        resultsContainer.appendChild(listItem);
+document.getElementById("searchButton").addEventListener("click", function () {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  localStorage.setItem("lastSearch", input); // Save to localStorage
+
+  const resultsContainer = document.getElementById("searchResults");
+  resultsContainer.innerHTML = "";
+
+  const results = faqTopics.filter(topic => topic.question.toLowerCase().includes(input));
+
+  if (results.length === 0) {
+      resultsContainer.innerHTML = "<p>No matching topics found.</p>";
+  } else {
+      resultsContainer.innerHTML = "<ul>" + results.map(topic => `<li><a href="${topic.link}">${topic.question}</a></li>`).join('') + "</ul>";
+  }
+});
+
+// Load last search when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  const lastSearch = localStorage.getItem("lastSearch");
+  if (lastSearch) {
+      document.getElementById("searchInput").value = lastSearch;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector("#menu");
+
+  if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
       });
-    }
-  });
-
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('nav ul');
-
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+  }
 });

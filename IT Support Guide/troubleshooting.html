@@ -25,20 +25,23 @@
    <main>
         <section id="troubleshooting">
             <h2>Troubleshooting Flowchart</h2>
-            <p>Select an issue below to begin troubleshooting:</p>
-            <select id="issue-select" onchange="displaySolution()">
-                <option value="">-- Select an issue --</option>
-                <option value="computer-slow">Computer Running Slow</option>
-                <option value="internet-connection">No Internet Connection</option>
-                <option value="password-reset">Forgot Password</option>
-                <option value="printer-issue">Printer Not Printing</option>
-                <option value="computer-frozen">Computer Frozen</option>
-                <option value="virus-protection">Computer Virus Protection</option>
-                <option value="email-issue">Email Not Working</option>
-                <option value="speed-up-internet">Slow Internet Connection</option>
-                <option value="backup-data">Data Backup</option>
-                <option value="clear-cache">Clear Cache And Cookies</option>
-            </select>
+            <form id="troubleshooting-form">
+                <label for="issue-select">Select an issue to troubleshoot:</label>
+                <select id="issue-select" name="issue" onchange="displaySolution()">
+                    <option value="">-- Select an issue --</option>
+                    <option value="computer-slow">Computer Running Slow</option>
+                    <option value="internet-connection">No Internet Connection</option>
+                    <option value="password-reset">Forgot Password</option>
+                    <option value="printer-issue">Printer Not Printing</option>
+                    <option value="computer-frozen">Computer Frozen</option>
+                    <option value="virus-protection">Computer Virus Protection</option>
+                    <option value="email-issue">Email Not Working</option>
+                    <option value="speed-up-internet">Slow Internet Connection</option>
+                    <option value="backup-data">Data Backup</option>
+                    <option value="clear-cache">Clear Cache And Cookies</option>
+                </select>
+                <button type="submit">Refresh</button>
+            </form>
             <div id="solution"></div>
         </section>
     </main>
@@ -46,5 +49,6 @@
         <p>&copy; <span id="current-year"></span> 💠 Ty Rusnell 💠 USA</p>
         <p>Last modified: <span id="last-modified"></span></p>
       </footer>
+      <script defer src="scripts/it_support_guide.js"></script>
 </body>
 </html>
