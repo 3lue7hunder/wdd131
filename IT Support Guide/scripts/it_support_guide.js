@@ -1,11 +1,14 @@
+// Update current year in the footer
 document.getElementById('current-year').textContent = new Date().getFullYear();
 document.getElementById('last-modified').textContent = document.lastModified;
 
-
+// Function to display the solution based on the selected or queried topic
 function displaySolution() {
     const urlParams = new URLSearchParams(window.location.search);
-    const topic = urlParams.get('topic') || document.getElementById('issue-select').value;
+    const topic = urlParams.get('topic') || document.getElementById('issue-select')?.value;
     const solutionContainer = document.getElementById('solution');
+
+    if (!solutionContainer) return; // Prevent errors if element is missing
 
     const solutions = {
         "computer-slow": "Several factors can cause this. Try restarting your computer first. If the issue persists, check for resource-intensive programs (using Task Manager on Windows or Activity Monitor on macOS), scan for malware, and consider upgrading your RAM or hard drive (or SSD). Disk cleanup can also help.",
@@ -19,17 +22,18 @@ function displaySolution() {
         "backup-data": "You can use external hard drives, cloud storage services, or a combination of both (the 3-2-1 backup strategy is recommended: 3 copies of your data on 2 different media with 1 copy offsite). Regularly back up important files to protect them from data loss due to hardware failure, accidental deletion, or ransomware.",
         "clear-cache": "Clearing your cache and cookies can help with website loading issues, as it forces the browser to download fresh copies of website files. The process varies slightly depending on the browser (Chrome, Firefox, Edge, Safari, etc.), but it usually involves going to the browser's settings or history and selecting the option to clear cache, cookies, and browsing data. Search online for instructions specific to your browser."
     };
-    
 
-    solutionContainer.innerHTML = solutions[topic] || "";
+    solutionContainer.innerHTML = solutions[topic] || "<p>No solution available for this issue.</p>";
 }
 
-window.onload = function () {
+// Run solution display when the page loads if the element exists
+document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById('solution')) {
         displaySolution();
     }
-};
+});
 
+// FAQ topics for search functionality
 const faqTopics = [
     { question: "My computer is running slow. What should I do?", link: "troubleshooting.html?topic=computer-slow" },
     { question: "I can't connect to the internet. Help!", link: "troubleshooting.html?topic=internet-connection" },
@@ -43,38 +47,44 @@ const faqTopics = [
     { question: "How do I clear my cache and cookies?", link: "troubleshooting.html?topic=clear-cache" }
 ];
 
-  
-document.getElementById("searchButton").addEventListener("click", function () {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  localStorage.setItem("lastSearch", input); // Save to localStorage
+// Search functionality with localStorage
+document.addEventListener("DOMContentLoaded", () => {
+    const searchButton = document.getElementById("searchButton");
+    const searchInput = document.getElementById("searchInput");
+    const resultsContainer = document.getElementById("searchResults");
 
-  const resultsContainer = document.getElementById("searchResults");
-  resultsContainer.innerHTML = "";
+    if (searchButton && searchInput && resultsContainer) {
+        searchButton.addEventListener("click", function () {
+            const input = searchInput.value.toLowerCase();
+            localStorage.setItem("lastSearch", input); // Save search query
 
-  const results = faqTopics.filter(topic => topic.question.toLowerCase().includes(input));
+            resultsContainer.innerHTML = "";
 
-  if (results.length === 0) {
-      resultsContainer.innerHTML = "<p>No matching topics found.</p>";
-  } else {
-      resultsContainer.innerHTML = "<ul>" + results.map(topic => `<li><a href="${topic.link}">${topic.question}</a></li>`).join('') + "</ul>";
-  }
+            const results = faqTopics.filter(topic => topic.question.toLowerCase().includes(input));
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = "<p>No matching topics found.</p>";
+            } else {
+                resultsContainer.innerHTML = "<ul>" + results.map(topic => `<li><a href="${topic.link}">${topic.question}</a></li>`).join('') + "</ul>";
+            }
+        });
+
+        // Load last search when the page loads
+        const lastSearch = localStorage.getItem("lastSearch");
+        if (lastSearch) {
+            searchInput.value = lastSearch;
+        }
+    }
 });
 
-// Load last search when the page loads
+// Hamburger menu functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const lastSearch = localStorage.getItem("lastSearch");
-  if (lastSearch) {
-      document.getElementById("searchInput").value = lastSearch;
-  }
-});
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector("#menu");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector("#menu");
-
-  if (hamburger && navMenu) {
-      hamburger.addEventListener("click", () => {
-          navMenu.classList.toggle("active");
-      });
-  }
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
 });
